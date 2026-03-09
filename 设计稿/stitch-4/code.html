@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Formula Management - TCM Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 md:px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined text-3xl">eco</span>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em]">方剂大师</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium" href="#">仪表盘</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium" href="#">中药</a>
+<a class="text-primary text-sm font-semibold" href="#">方剂</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium" href="#">历史</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<label class="hidden sm:flex flex-col min-w-40 h-10 max-w-64 relative">
+<div class="flex w-full flex-1 items-center rounded-lg bg-slate-100 dark:bg-slate-800 px-3">
+<span class="material-symbols-outlined text-slate-500 text-xl">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-sm placeholder:text-slate-500" placeholder="快速搜索..." type="text"/>
+</div>
+</label>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="bg-primary/20 p-1 rounded-full">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 border-2 border-primary" data-alt="User profile avatar portrait" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAWE8KQTMlI32tYCniGGy1dEFppqdS_QOXq-JmbbrVFublxltGoxjm3AoSD1xp79fO0dPsp3r8AcCAMe3PMydbt6TB1C4XTnfRUuTM9OOHdRVicirAXRTs8qswVsrzaBirvzXgXjh6ma4DWUDpI4pLtchc9IWeCnOU_PM8jt57FjpKZaFAR_S217QKLPeEw2nHra942-6Odh7q6gkuia9lGG-G05JxRabT78EkGHnByBXt18mqWtigxAMxqYTRY5j2VGeXqC1upCzTX");'></div>
+</div>
+</div>
+</div>
+</header>
+<main class="flex flex-1 flex-col lg:flex-row">
+<aside class="w-full lg:w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shrink-0">
+<div class="flex flex-col gap-1">
+<p class="px-3 text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">主菜单</p>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">首页</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary border border-primary/20" href="#">
+<span class="material-symbols-outlined">pill</span>
+<span class="text-sm font-bold">方剂</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined">psychiatry</span>
+<span class="text-sm font-medium">中药</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="text-sm font-medium">处方</span>
+</a>
+<hr class="my-4 border-slate-100 dark:border-slate-800"/>
+<p class="px-3 text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">系统</p>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">设置</span>
+</a>
+</div>
+</aside>
+<div class="flex-1 flex flex-col p-4 md:p-8 gap-6 max-w-7xl mx-auto w-full">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<nav class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+<span>中医药门户</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="text-primary font-semibold">方剂管理</span>
+</nav>
+<h1 class="text-slate-900 dark:text-slate-100 text-3xl font-black leading-tight tracking-tight">方剂数据库</h1>
+<p class="text-slate-500 dark:text-slate-400 text-base max-w-xl">传统医药配方、药味组成和功能主治的核心数据库。</p>
+</div>
+<button class="flex items-center gap-2 bg-primary text-background-dark font-bold px-5 py-2.5 rounded-lg hover:brightness-110 transition-all shadow-lg shadow-primary/20"><span class="material-symbols-outlined">add</span> 新增方剂</button>
+</div>
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex flex-col md:flex-row gap-4 mb-6">
+<div class="flex-1 relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg pl-10 pr-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm" placeholder="通过名称、来源或主治搜索方剂..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all text-sm font-medium"><span class="material-symbols-outlined text-xl">filter_list</span> 筛选</button>
+<button class="flex items-center gap-2 px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all text-sm font-medium"><span class="material-symbols-outlined text-xl">download</span> 导出</button>
+</div>
+</div>
+<div class="overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-800">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 text-xs font-bold uppercase tracking-wider">
+<th class="px-6 py-4">方剂名称</th>
+<th class="px-6 py-4">来源文献</th>
+<th class="px-6 py-4">主要功效</th>
+<th class="px-6 py-4">临床主治</th>
+<th class="px-6 py-4 text-right">操作</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100 uppercase tracking-tight">Liu Wei Di Huang Wan</span>
+<span class="text-xs text-slate-500">Rehmannia Six Formula</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-slate-600 dark:text-slate-400 italic">Xiao Er Yao Zheng Zhi Jue</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+                                                Nourish Kidney Yin
+                                            </span>
+</td>
+<td class="px-6 py-5 text-sm text-slate-600 dark:text-slate-400">Dizziness, night sweats, sore back</td>
+<td class="px-6 py-5 text-right space-x-3">
+<button class="text-primary hover:text-primary/80 text-sm font-bold">编辑</button>
+<button class="text-slate-900 dark:text-slate-100 hover:text-primary transition-colors text-sm font-bold">查看详情</button>
+</td>
+</tr>
+<tr class="bg-slate-50 dark:bg-slate-800/20 border-l-4 border-primary">
+<td class="px-6 py-6" colspan="5">
+<div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-primary/20 shadow-inner">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-bold flex items-center gap-2"><span class="material-symbols-outlined text-primary">visibility</span> 配伍详情</h3>
+<div class="flex gap-4 text-xs font-bold uppercase tracking-widest text-slate-400">
+<span>状态：已验证</span>
+<span>最后更新：2023年10月</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-background-light dark:bg-slate-800/50 p-4 rounded-lg border border-slate-100 dark:border-slate-700">
+<p class="text-xs font-bold text-primary mb-3 uppercase tracking-wider">君药 (Jun)</p>
+<div class="flex justify-between items-center group">
+<div>
+<p class="text-sm font-bold">Shu Di Huang</p>
+<p class="text-[10px] text-slate-500 italic">传统医药配方、药味组成和功能主治的核心数据库。</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-black text-slate-900 dark:text-slate-100">24g</p>
+<p class="text-[10px] text-slate-500">传统医药配方、药味组成和功能主治的核心数据库。</p>
+</div>
+</div>
+</div>
+<div class="bg-background-light dark:bg-slate-800/50 p-4 rounded-lg border border-slate-100 dark:border-slate-700">
+<p class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wider">传统医药配方、药味组成和功能主治的核心数据库。</p>
+<div class="space-y-4">
+<div class="flex justify-between items-center border-b border-slate-200 dark:border-slate-700 pb-2">
+<div>
+<p class="text-sm font-bold">Shan Zhu Yu</p>
+<p class="text-[10px] text-slate-500 italic">传统医药配方、药味组成和功能主治的核心数据库。</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-black">12g</p>
+<p class="text-[10px] text-slate-500">传统医药配方、药味组成和功能主治的核心数据库。</p>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<div>
+<p class="text-sm font-bold">Shan Yao</p>
+<p class="text-[10px] text-slate-500 italic">传统医药配方、药味组成和功能主治的核心数据库。</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-black">12g</p>
+<p class="text-[10px] text-slate-500">传统医药配方、药味组成和功能主治的核心数据库。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-background-light dark:bg-slate-800/50 p-4 rounded-lg border border-slate-100 dark:border-slate-700">
+<p class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wider">传统医药配方、药味组成和功能主治的核心数据库。</p>
+<div class="space-y-3">
+<div class="flex justify-between items-center border-b border-slate-200 dark:border-slate-700 pb-1">
+<span class="text-sm">Ze Xie</span>
+<span class="text-sm font-bold">9g</span>
+</div>
+<div class="flex justify-between items-center border-b border-slate-200 dark:border-slate-700 pb-1">
+<span class="text-sm">Mu Dan Pi</span>
+<span class="text-sm font-bold">9g</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm">Fu Ling</span>
+<span class="text-sm font-bold">9g</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100 uppercase tracking-tight">Xiao Yao San</span>
+<span class="text-xs text-slate-500">Free and Easy Wanderer</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-slate-600 dark:text-slate-400 italic">Ju Fang</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+                                                Soothe Liver Qi
+                                            </span>
+</td>
+<td class="px-6 py-5 text-sm text-slate-600 dark:text-slate-400">Stress, irritability, PMT symptoms</td>
+<td class="px-6 py-5 text-right space-x-3">
+<button class="text-primary hover:text-primary/80 text-sm font-bold">编辑</button>
+<button class="text-slate-900 dark:text-slate-100 hover:text-primary transition-colors text-sm font-bold">查看详情</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100 uppercase tracking-tight">Gui Pi Tang</span>
+<span class="text-xs text-slate-500">Spleen-Restoring Decoction</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-slate-600 dark:text-slate-400 italic">Ji Sheng Fang</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+                                                Tonify Spleen &amp; Heart
+                                            </span>
+</td>
+<td class="px-6 py-5 text-sm text-slate-600 dark:text-slate-400">Insomnia, palpitations, poor memory</td>
+<td class="px-6 py-5 text-right space-x-3">
+<button class="text-primary hover:text-primary/80 text-sm font-bold">编辑</button>
+<button class="text-slate-900 dark:text-slate-100 hover:text-primary transition-colors text-sm font-bold">查看详情</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100 uppercase tracking-tight">Ban Xia Xie Xin Tang</span>
+<span class="text-xs text-slate-500">Pinellia Epigastrium-Draining</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-slate-600 dark:text-slate-400 italic">Shang Han Lun</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+                                                Harmonize Stomach
+                                            </span>
+</td>
+<td class="px-6 py-5 text-sm text-slate-600 dark:text-slate-400">Epigastric fullness, nausea, bloating</td>
+<td class="px-6 py-5 text-right space-x-3">
+<button class="text-primary hover:text-primary/80 text-sm font-bold">编辑</button>
+<button class="text-slate-900 dark:text-slate-100 hover:text-primary transition-colors text-sm font-bold">查看详情</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+<p class="text-xs font-medium text-slate-500">显示第 1 至 5 项，共 128 项方剂</p>
+<div class="flex items-center gap-2">
+<button class="p-2 border border-slate-200 dark:border-slate-800 rounded hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="px-3 py-1 bg-primary text-background-dark text-xs font-bold rounded"><span class="material-symbols-outlined">add</span> 新增方剂</button>
+<button class="px-3 py-1 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-medium rounded transition-colors">2</button>
+<button class="px-3 py-1 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-medium rounded transition-colors">3</button>
+<span class="text-slate-300">...</span>
+<button class="px-3 py-1 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-medium rounded transition-colors">26</button>
+<button class="p-2 border border-slate-200 dark:border-slate-800 rounded hover:bg-slate-50 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>
