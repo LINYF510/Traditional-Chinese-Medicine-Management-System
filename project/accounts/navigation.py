@@ -14,11 +14,11 @@ class MenuItem:
 
 
 MENU_ITEMS: tuple[MenuItem, ...] = (
-    MenuItem(label="Dashboard", icon="dashboard", permission_code="dashboard.view", path="/app/dashboard"),
-    MenuItem(label="Herbs", icon="spa", permission_code="herb.view", path="/app/herbs"),
-    MenuItem(label="Formulas", icon="science", permission_code="formula.view", path="/app/formulas"),
-    MenuItem(label="Inventory", icon="inventory_2", permission_code="inventory.view", path="/app/inventory"),
-    MenuItem(label="Users", icon="groups", permission_code="user.view", path="/app/users"),
+    MenuItem(label="dashboard", icon="dashboard", permission_code="dashboard.view", path="/app/dashboard"),
+    MenuItem(label="herbs", icon="spa", permission_code="herb.view", path="/app/herbs"),
+    MenuItem(label="formulas", icon="science", permission_code="formula.view", path="/app/formulas"),
+    MenuItem(label="inventory", icon="inventory_2", permission_code="inventory.view", path="/app/inventory"),
+    MenuItem(label="users", icon="groups", permission_code="user.view", path="/app/users"),
 )
 
 
